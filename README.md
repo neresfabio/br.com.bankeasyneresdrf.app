@@ -1,4 +1,5 @@
--[Logo do projeto Django Framework](doc\imgages\image.png)
+![image](https://github.com/user-attachments/assets/6f8132b2-d6dc-4b38-b8eb-57aba77dcd9d)
+
 # Desafio para Desenvolvedor(a) Júnior - API RESTful
 
 ## Cenário:
