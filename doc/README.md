@@ -112,19 +112,18 @@ Esse planejamento vai ajudar o desenvolvedor a se organizar e progredir de forma
 ---
 
 ```mermaid
-
 ---
 title: Banco de Dados
 ---
 
-    Cliente "1" --> "0..*" Conta : possui
-    Banco "1" --> "0..*" Cliente : gerencia
-    Banco "1" --> "0..*" Conta : contém
 classDiagram
     class Cliente {
         +String nome
         +String cpf
         +String telefone
+        +String datanascimento
+        +String creatAt
+        +String updateAt
         +List~Conta~ contas
         +cadastrarConta(Conta conta)
         +consultarContas(): List~Conta~
@@ -133,6 +132,9 @@ classDiagram
     class Conta {
         +int numero
         +double saldo
+        +String tipoConta
+        +String creatAt
+        +String updateAt
         +realizarDeposito(double valor)
         +realizarSaque(double valor)
         +consultarSaldo(): double
@@ -145,6 +147,9 @@ classDiagram
         +consultarCliente(String cpf): Cliente
         +realizarTransacao(int numeroConta, double valor, String tipoTransacao)
     }
+Cliente "1" --> "0..*" Conta : possui
+Banco "1" --> "0..*" Cliente : gerencia
+Banco "1" --> "0..*" Conta : contém
 ```
 
 ### Explicação:
