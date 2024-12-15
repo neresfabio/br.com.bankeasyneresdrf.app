@@ -10,7 +10,7 @@
 
 ### **2. Planejamento do Projeto**
    - **Divida o projeto em tarefas menores**:
-     - Configurar o ambiente.
+     - Configurar o ambiente. (ok)
      - Criar o modelo de clientes.
      - Criar o modelo de contas.
      - Implementar os endpoints CRUD para clientes e contas.
@@ -108,3 +108,46 @@
 ---
 
 Esse planejamento vai ajudar o desenvolvedor a se organizar e progredir de forma estruturada no desafio! 🚀
+
+---
+
+```mermaid
+
+---
+title: Banco de Dados
+---
+
+    Cliente "1" --> "0..*" Conta : possui
+    Banco "1" --> "0..*" Cliente : gerencia
+    Banco "1" --> "0..*" Conta : contém
+classDiagram
+    class Cliente {
+        +String nome
+        +String cpf
+        +String telefone
+        +List~Conta~ contas
+        +cadastrarConta(Conta conta)
+        +consultarContas(): List~Conta~
+    }
+
+    class Conta {
+        +int numero
+        +double saldo
+        +realizarDeposito(double valor)
+        +realizarSaque(double valor)
+        +consultarSaldo(): double
+    }
+
+    class Banco {
+        +String nome
+        +List~Cliente~ clientes
+        +cadastrarCliente(Cliente cliente)
+        +consultarCliente(String cpf): Cliente
+        +realizarTransacao(int numeroConta, double valor, String tipoTransacao)
+    }
+```
+
+### Explicação:
+- **Classe Cliente**: Representa os clientes do banco. Cada cliente tem nome, CPF, telefone e uma lista de contas associadas.
+- **Classe Conta**: Representa uma conta bancária com número, saldo e métodos para depósitos, saques e consulta de saldo.
+- **Classe Banco**: Centraliza as operações do sistema. Gerencia clientes e contas, e realiza transações.
