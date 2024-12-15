@@ -43,9 +43,20 @@
 ### **4. Modelagem do Banco de Dados**
    - Defina os **modelos** com base nos requisitos:
      - Modelo `Cliente`:
-       - Nome, CPF, data de nascimento.
+       - Nome completo
+       - CPF (único)
+       - E-mail (único)
+       - Telefone
+       - Data de nascimento
+       - Data de criação do registro
+       - createdAt
+       - updateAt
      - Modelo `ContaBancaria`:
-       - Cliente (chave estrangeira), número da conta, tipo da conta, saldo.
+       - Cliente (chave estrangeira para o modelo de Clientes)
+       - Número da conta (único)
+       - Tipo de conta (corrente, poupança)
+       - Saldo inicial (padrão: 0.00)
+       - Data de criação da conta
    - Adicione validações básicas, como a unicidade do CPF e número da conta.
    - Realize a migração para criar as tabelas:
      ```bash
